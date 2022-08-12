@@ -1,0 +1,35 @@
+<div class="float-end mt-5">
+  <a routerLink="/home"><button type="submit" class="btn btn-primary btn-block mb-3">LogOut</button></a>&nbsp;
+
+</div>
+<div class="Container px-3 ">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Content</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listService.lists">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.author}}</td>
+        <td>{{item.content}}</td>
+        <td>{{item.date}}</td>
+        <td>
+          <a routerLink="/editpost/{{item.id}}" class="btn btn-primary me-1 mb-3">Edit</a>
+        <a routerLink="/comment"><button class="btn btn-primary me-1 mb-3">Comment</button></a>
+        <button type="button" class="btn btn-primary  me-1 mb-3" (click)="delete(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/createpost"><button type="submit" class="btn btn-primary btn-block mb-3" >Add Post</button></a>
+</div>
+

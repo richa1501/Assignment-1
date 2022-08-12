@@ -1,0 +1,28 @@
+<p>editpost works!</p>
+<div class="container d-flex align-items-center justify-content-center mt-5 ">
+    
+    <div class="card" style="width:32rem">
+        <h1 class="mx-auto mt-3" >Create New Post</h1>
+ <form class="p-3" [formGroup]="posteditForm" (ngSubmit)="edit()"> 
+      <!-- Title input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="title" class="form-control" formControlName="title" >
+        <label class="form-label" for="title">Title</label>
+      </div> 
+
+      <!-- Author input -->
+     <div class="form-outline mb-4">
+        <input type="text" id="author" class="form-control" formControlName="author" >
+        <label class="form-label" for="author">Author</label>
+      </div> 
+
+      <!-- Content input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="content" class="form-control" formControlName="content">
+        <label class="content" for="content">Content</label>
+      </div>   
+<!--Submit button -->
+<button type="submit" class="btn btn-primary btn-block mb-3"  >Update</button>
+  </form>
+</div>
+</div> 
