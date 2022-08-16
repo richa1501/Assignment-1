@@ -1,6 +1,6 @@
-
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,  Validators } from '@angular/forms';
+import { FormControl, FormGroup, MinLengthValidator, RequiredValidator, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListData, ListService } from 'src/app/service/list.service';
 
@@ -18,10 +18,9 @@ export class EditpostComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
   posteditForm = new FormGroup({
-    'title': new FormControl('',[Validators.required, Validators.maxLength(5)]),
-    'author': new FormControl('',[Validators.required, Validators.maxLength(4)]),
-    'content': new FormControl('',[Validators.required, Validators.maxLength(3)]),
-    
+    'title': new FormControl(Validators.required, Validators.minLength(5)),
+    'author': new FormControl(Validators.required, Validators.minLength(9)),
+    'content': new FormControl(Validators.required, Validators.minLength(12)),
 }) ;
 itemId:number=0;
 item:any = null;
@@ -34,46 +33,31 @@ content:string="";
   ngOnInit(): void {    
 
     this.route.params.subscribe(p => {
-      // if(p['id']){
-        this.itemId = p['id'];         
-      // }     
-      // else     
-      // this.itemId != p['id']
-      // this.router.navigate(['home']);
-          this.item = this.listservice.lists.find(item =>item.id == this.itemId);
-          
-          if(this.item){
-          this.posteditForm.controls['title'].setValue( this.item.title);
-          this.posteditForm.controls['author'].setValue(this.item.author);
-          this.posteditForm.controls['content'].setValue(this.item.content);
-          
-        }
-        console.log(this.posteditForm.value)
+      if(p['id'])
+        this.itemId = p['id'];
     });
+
     //getpost Values
-    // this.getListData();    
+    this.getListData();
 }
-// getListData(){
+getListData(){
   
-//   this.item = this.listservice.lists.find(item =>item.id == this.itemId);
+  this.item = this.listservice.lists.find(item =>item.id == this.itemId);
   
-//   if(this.item){
-//   this.posteditForm.controls['title'].setValue( this.item.title);
-//   this.posteditForm.controls['author'].setValue(this.item.author);
-//   this.posteditForm.controls['content'].setValue(this.item.content);
-//   }
-// }
+  if(this.item){
+  this.posteditForm.controls['title'].setValue( this.item.title);
+  this.posteditForm.controls['author'].setValue(this.item.author);
+  this.posteditForm.controls['content'].setValue(this.item.content);
+  }
+}
 //Call Edit Method to Update change
 edit(){
-  
-  const postCurr = this.posteditForm.value;
+  const curr = this.posteditForm.value;
   if(this.item){
-    this.item.author = postCurr.author;
-    this.item.content = postCurr.content;
-    this.item.title = postCurr.title;
+    this.item.author = curr.author;
+    this.item.content = curr.content;
+    this.item.title = curr.title;
   }
-  
-
   this.router.navigate(['dashboard']);
 }
 }

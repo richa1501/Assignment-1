@@ -6,28 +6,23 @@
  <form class="p-3" [formGroup]="posteditForm" (ngSubmit)="edit()"> 
       <!-- Title input -->
       <div class="form-outline mb-4">
+        <input type="text" id="title" class="form-control" formControlName="title" >
         <label class="form-label" for="title">Title</label>
-        <input type="text" id="title" class="form-control" formControlName="title" required >
-        <!-- <span *ngIf="posteditForm.('title').Eroor[required]">Empty filed must be filled</span> -->
-        
       </div> 
 
       <!-- Author input -->
      <div class="form-outline mb-4">
-      <label class="form-label" for="author">Author</label>
-        <input type="text" id="author" class="form-control" formControlName="author" required>        
-        
-
+        <input type="text" id="author" class="form-control" formControlName="author" >
+        <label class="form-label" for="author">Author</label>
       </div> 
 
       <!-- Content input -->
       <div class="form-outline mb-4">
+        <input type="text" id="content" class="form-control" formControlName="content">
         <label class="content" for="content">Content</label>
-        <input type="text" id="content" class="form-control" formControlName="content" required >
-        
       </div>   
 <!--Submit button -->
-<button type="submit" class="btn btn-primary btn-block mb-3" >Update</button>
+<button type="submit" class="btn btn-primary btn-block mb-3"  >Update</button>
   </form>
 </div>
 </div> 
