@@ -4,7 +4,7 @@ export interface ListData{
   title:string,
   author:string,
   content:string,
-  date:string
+  date:string | Date
 
 }
 
@@ -18,21 +18,21 @@ export class ListService {
       title:"Blank",
       author:"ken",
       content:"normal",
-      date:"30-7-2022"
+      date:new Date("2022-07-31")
     },
     {
       id:2,
       title:"Blank",
       author:"ken",
       content:"normal",
-      date:"30-7-2022"
+      date:new Date("2022-07-31")
     },
     {
       id:3,
       title:"Blank",
       author:"ken",
       content:"normal",
-      date:"30-7-2022"
+      date:new Date("2022-07-31")
     }
   ]
 
