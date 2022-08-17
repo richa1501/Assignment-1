@@ -7,8 +7,8 @@
       <!-- Title input -->
       <div class="form-outline mb-4">
         <label class="form-label" for="title">Title</label>
-        <input type="text" id="title" class="form-control" formControlName="title" required >
-        <!-- <span *ngIf="posteditForm.('title').Eroor[required]">Empty filed must be filled</span> -->
+        <input type="text" id="title" class="form-control" formControlName="title"  required>
+        <span *ngIf="">Empty filed must be filled</span>
         
       </div> 
 
@@ -27,7 +27,8 @@
         
       </div>   
 <!--Submit button -->
-<button type="submit" class="btn btn-primary btn-block mb-3" >Update</button>
+<button type="submit" class="btn btn-primary btn-block mb-3" [disabled]="!posteditForm.valid">Update</button>
+<span>Please Fill Valid In</span>
   </form>
 </div>
 </div> 

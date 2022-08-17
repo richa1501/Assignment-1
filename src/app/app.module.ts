@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    AdminModule
+    AdminModule,
+    FormsModule,
+    ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

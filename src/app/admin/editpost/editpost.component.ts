@@ -11,18 +11,24 @@ import { ListData, ListService } from 'src/app/service/list.service';
   styleUrls: ['./editpost.component.css']
 })
 export class EditpostComponent implements OnInit {
+  posteditForm = new FormGroup({
+    'title': new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(7)]),
+    'author': new FormControl('',[Validators.required, Validators.maxLength(6)]),
+    'content': new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(10)])
+    
+}) ;
   
   constructor(
     public listservice: ListService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
-  posteditForm = new FormGroup({
-    'title': new FormControl('',[Validators.required, Validators.maxLength(5)]),
-    'author': new FormControl('',[Validators.required, Validators.maxLength(4)]),
-    'content': new FormControl('',[Validators.required, Validators.maxLength(3)]),
+//   posteditForm = new FormGroup({
+//     'title': new FormControl('',[Validators.required, Validators.maxLength(5)]),
+//     'author': new FormControl('',[Validators.required, Validators.maxLength(4)]),
+//     'content': new FormControl('',[Validators.required, Validators.maxLength()])
     
-}) ;
+// }) ;
 itemId:number=0;
 item:any = null;
 postData:any={  };
@@ -48,7 +54,7 @@ content:string="";
           this.posteditForm.controls['content'].setValue(this.item.content);
           
         }
-        console.log(this.posteditForm.value)
+        console.log(this.posteditForm)
     });
     //getpost Values
     // this.getListData();    
@@ -66,8 +72,16 @@ content:string="";
 //Call Edit Method to Update change
 edit(){
   
+  if(this.posteditForm.valid){
+    console.log(this.posteditForm)
+     }
+     else{
+     (!this.posteditForm.valid)
+     alert('invalid form');  }
+   
+   
   const postCurr = this.posteditForm.value;
-  if(this.item){
+  if(this.item && this.posteditForm.valid){
     this.item.author = postCurr.author;
     this.item.content = postCurr.content;
     this.item.title = postCurr.title;
