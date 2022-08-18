@@ -24,7 +24,7 @@ export class ListService {
       id:2,
       title:"Blank",
       author:"ken",
-      content:"normal",
+      content:"normallized",
       date:new Date("2022-07-31")
     },
     {

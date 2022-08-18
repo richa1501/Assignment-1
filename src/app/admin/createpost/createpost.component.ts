@@ -30,7 +30,7 @@ this.listservice.lists.push({
   title : this.title,
   author: this.author,
   content:this.author,
-  date:"30-7-2022"
+  date:new Date("2022-07-31")
 })
   
 

@@ -8,6 +8,7 @@ import { CreatepostComponent } from './createpost/createpost.component';
 import { FormsModule } from '@angular/forms';
 import { EditpostComponent } from './editpost/editpost.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContentstatusPipe } from '../pipes/contentstatus.pipe';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreatecommentComponent, 
     EditpostComponent ,
     CreatepostComponent,  
-    
+    ContentstatusPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   exports:[
     DashboardComponent,

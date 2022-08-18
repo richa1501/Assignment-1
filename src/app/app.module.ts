@@ -6,11 +6,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import{ HttpClientModule } from '@angular/common/http';
+// import { ContentstatusPipe } from './pipes/contentstatus.pipe'
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    // ContentstatusPipe,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     AdminModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
